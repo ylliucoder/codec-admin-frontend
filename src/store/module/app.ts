@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {APP_STORE, STORE_PREFIX} from "../constant.ts";
+import {APP_STORE, STORE_PREFIX} from "@/store/constant";
 
 const appStoreSetup = () => {
     const theme = ref<"dark" | "light">("light")
