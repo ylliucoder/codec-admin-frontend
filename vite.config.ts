@@ -1,20 +1,26 @@
 import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
 import {fileURLToPath} from "node:url";
-import {vitePluginFakeServer} from "vite-plugin-fake-server";
+import getVitePluginList from "./build/plugins.ts";
 
-export default defineConfig({
-    plugins: [vue(), vitePluginFakeServer({
-        include: "mock",
-        basename: '/api',
-        enableDev: true,
-        enableProd: false,
-        watch: true,
-        logger: true
-    })],
+export default defineConfig(({mode}) => ({
+    plugins: getVitePluginList(mode),
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    }
-})
+    },
+    ...(mode === 'dev') && {
+        server: {
+            proxy: {
+                '/api': {
+                    target: 'http://localhost:9999',
+                    rewrite: (path) => path.replace(/^\/api/, '/api')
+                }
+            }
+        }
+    },
+    envDir: 'env'
+}))
+
+
+

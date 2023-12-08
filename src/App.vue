@@ -2,8 +2,8 @@
 import {AuthApi} from "@/apis";
 
 const initData = async () => {
-  const {data} = await AuthApi.test()
-  console.log(data)
+  const a = await AuthApi.test()
+  console.log(a)
 }
 initData()
 </script>

@@ -1,4 +1,5 @@
 import {defineFakeRoute} from "vite-plugin-fake-server/client";
+// console.log(import.meta.env.VITE_API_BASE_URL)
 
 export default defineFakeRoute([{
     url: "/menu",
@@ -7,8 +8,6 @@ export default defineFakeRoute([{
         code: 200,
         success: true,
         message: "",
-        data: [{
-
-        }]
+        data: [{}]
     })
 }])

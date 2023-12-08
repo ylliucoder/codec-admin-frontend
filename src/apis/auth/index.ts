@@ -1,5 +1,5 @@
 import http from "@/utils/http";
 
-const test = () => http.post<ApiRes<string>>('http://localhost:9999/test')
+const test = () => http.get<ApiRes<string>>('/api/menu')
 
 export const AuthApi = {test}
