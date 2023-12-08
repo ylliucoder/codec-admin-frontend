@@ -9,7 +9,7 @@ initData()
 </script>
 
 <template>
-  <div>hello world</div>
+  <div class="bg-red-50">hello world</div>
 </template>
 
 <style scoped>

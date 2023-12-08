@@ -9,16 +9,14 @@ export default defineConfig(({mode}) => ({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
-    ...(mode === 'dev') && {
-        server: {
-            proxy: {
-                '/api': {
-                    target: 'http://localhost:9999',
-                    rewrite: (path) => path.replace(/^\/api/, '/api')
-                }
+    server: mode === 'dev' ? {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:9999',
+                rewrite: (path) => path.replace(/^\/api/, '/api')
             }
         }
-    },
+    } : {},
     envDir: 'env'
 }))
 
