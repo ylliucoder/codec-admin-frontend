@@ -1,5 +1,4 @@
 import {defineStore} from "pinia";
-import {ref} from "vue";
 import {APP_STORE, STORE_PREFIX} from "@/store/constant";
 
 const appStoreSetup = () => {

@@ -3,19 +3,22 @@ import {vitePluginFakeServer} from "vite-plugin-fake-server";
 
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite';
-import {ArcoResolver} from "unplugin-vue-components/resolvers";
+import {vitePluginForArco} from "@arco-plugins/vite-vue";
 
 const getVitePluginList = (mode: string) => {
     return [
         vue(),
+        vitePluginForArco({
+            style: 'css'
+        }),
         AutoImport({
             imports: ['vue', 'vue-router'],
-            resolvers: [ArcoResolver()],
-            dts: 'src/types/auto-imports.d.ts'
+            dts: 'src/types/import.d.ts',
         }),
         Components({
-            resolvers: [ArcoResolver({sideEffect: true})],
-            dts: 'src/types/components.d.ts'
+            extensions: ['vue'],
+            include: [/\.vue$/, /\.vue\?vue/],
+            dts: 'src/types/comp.d.ts',
         }),
         mode === 'mock' ? vitePluginFakeServer({
             include: "mock",
