@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import {AuthApi} from "@/apis";
-
-const initData = async () => {
-  const a = await AuthApi.test()
-  console.log(a)
-}
-initData()
+const counter = ref(100)
 </script>
 
 <template>
-  <div class="bg-red-50">hello world</div>
+  <div>
+    <a-button type="primary">Primary</a-button>
+    <a-button>Secondary</a-button>
+    <a-button type="dashed">Dashed</a-button>
+    <a-button type="outline">Outline</a-button>
+    <a-button type="text">Text</a-button>
+    <a-spin/>
+    <div>{{ counter }}</div>
+  </div>
 </template>
 
 <style scoped>
