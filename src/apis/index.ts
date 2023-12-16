@@ -1,3 +1,5 @@
-export * from '@/apis/auth'
+import * as auth from "@/apis/auth";
+import * as user from '@/apis/user'
 
-export * from '@/apis/auth/type'
+export const useAuthApi = {...auth}
+export const useUserApi = {...user}

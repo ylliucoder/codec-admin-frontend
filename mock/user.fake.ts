@@ -1,13 +1,13 @@
 import {defineFakeRoute} from "vite-plugin-fake-server/client";
-// console.log(import.meta.env.VITE_API_BASE_URL)
+import {menus} from "./data/menu";
 
 export default defineFakeRoute([{
-    url: "/menu",
+    url: "/user/route",
     method: "get",
-    response: (): ApiRes<object> => ({
+    response: (): ApiRes<MenuItem[]> => ({
         code: 200,
         success: true,
         message: "",
-        data: [{}]
+        data: menus
     })
 }])

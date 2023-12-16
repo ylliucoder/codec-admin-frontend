@@ -2,7 +2,10 @@
 </script>
 
 <template>
-  <router-view></router-view>
+  <div>
+    auth-layout
+    <router-view></router-view>
+  </div>
 </template>
 
 <style scoped>

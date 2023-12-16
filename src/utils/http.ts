@@ -12,7 +12,7 @@ class AxiosHttp {
 
     private initAxiosInstance() {
         this.instance = axios.create({
-            // baseURL: import.meta.env.VITE_API_BASE_URL,
+            baseURL: import.meta.env.VITE_API_BASE_URL,
             timeout: 30 * 1000,
             paramsSerializer: (params) => qs.stringify(params, {arrayFormat: 'indices', allowDots: true})
         })

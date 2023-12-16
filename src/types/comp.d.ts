@@ -7,6 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    403: typeof import('./../pages/error/403.vue')['default']
+    404: typeof import('./../pages/error/404.vue')['default']
+    500: typeof import('./../pages/error/500.vue')['default']
+    AdminAside: typeof import('./../layouts/admin/AdminAside.vue')['default']
+    AdminLayout: typeof import('./../layouts/admin/AdminLayout.vue')['default']
+    App: typeof import('./../App.vue')['default']
+    AuthLayout: typeof import('./../layouts/auth/AuthLayout.vue')['default']
+    Dashboard: typeof import('./../pages/admin/dashboard/index.vue')['default']
+    Login: typeof import('./../pages/auth/login/login.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

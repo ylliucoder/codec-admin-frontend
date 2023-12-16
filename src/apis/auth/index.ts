@@ -1,5 +1,4 @@
 import http from "@/utils/http";
 
-const test = () => http.get<ApiRes<string>>('/api/menu')
+export const test = () => http.get<ApiRes<string>>('/menu')
 
-export const AuthApi = {test}
